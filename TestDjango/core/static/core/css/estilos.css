@@ -1,0 +1,53 @@
+body {
+    display: flex;
+    flex-direction: column;
+    background-size: cover;
+    background-position: center;
+    transition: background-image 0.5s ease-in-out;
+    height: 100vh;
+    margin: 0;
+    padding: 0;
+}
+
+/* Estilos para el encabezado */
+.header {
+    display: flex;
+    align-items: center; /* Centra verticalmente */
+    justify-content: center; /* Centra horizontalmente */
+}
+
+.content {
+    flex: 1;
+}
+
+/* Estilos para el contenedor */
+.container {
+    margin: 50px auto; /* Centra el contenedor verticalmente y horizontalmente */
+    max-width: 800px;
+    padding: 20px; /* Agrega un poco de espacio entre el contenido y los bordes del contenedor */
+    background-color: rgba(255, 255, 255, 0.8); /* Color de fondo semi-transparente */
+    border-radius: 12px;
+}
+
+
+/* Estilos para los campos del formulario */
+.form-label {
+    font-weight: bold;
+}
+
+/* Estilos para los botones */
+.btn {
+    margin-top: 10px;
+}
+
+.thumbnail{
+    padding: 10px;
+}
+
+/* Estilos básicos para el footer */
+footer {
+    background-color: #f8f8f8;
+    padding: 10px;
+    text-align: center;
+    flex-shrink: 0; /* Asegura que el footer no se encoja */
+}
