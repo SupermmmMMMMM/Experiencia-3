@@ -2,10 +2,26 @@ from django.urls import path
 from .views import Index,ofertas,quienes,reserva,reclamos
 from django.contrib import admin
 from django.urls import path, include
+from . import views
 urlpatterns =[
     path('',Index,name="Index"),
     path('ofertas',ofertas,name="ofertas"),
     path('quienes',quienes,name="quienes"),
     path('reserva',reserva,name="reserva"),
-    path('reclamos',reclamos,name="reclamos")
+    path('reclamos',reclamos,name="reclamos"),
+    
+    # core/urls.py
+
+    path('<int:id>/', views.detalle_producto, name='detalle_producto'),
+    
+    path('ola', views.ingresar_producto, name='nuevo_producto'),
+
+     path('list/', views.producto_list, name='producto_list'),
+    path('productos/nuevo/', views.producto_create, name='producto_create'),
+    path('productos/<int:pk>/editar/', views.producto_update, name='producto_update'),
+    path('productos/<int:pk>/eliminar/', views.producto_delete, name='producto_delete'),
+     
+ 
+    # Otras URLs si las tienes
 ]
+
