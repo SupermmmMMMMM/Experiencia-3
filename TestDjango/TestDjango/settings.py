@@ -38,7 +38,10 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
      "crispy_forms",
+<<<<<<< Updated upstream
     "crispy_bootstrap5",
+=======
+>>>>>>> Stashed changes
     'core',
     
 ]
@@ -130,7 +133,11 @@ STATIC_URL = 'static/'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 import os
+<<<<<<< Updated upstream
 
+=======
+AUTH_USER_MODEL = 'core.Cliente'
+>>>>>>> Stashed changes
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 MEDIA_URL = '/media/'

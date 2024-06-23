@@ -1,3 +1,4 @@
+<<<<<<< Updated upstream
 <!DOCTYPE html>
 <html>
 <head>
@@ -23,3 +24,30 @@
     <a href="{% url 'producto_update' producto.idProducto %}">Editar</a>
 </body>
 </html>
+=======
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Detalle del Producto</title>
+</head>
+<body>
+    <p><strong>id:</strong> {{ producto.idProducto }}</p>
+    <h1>Detalle del Producto</h1>
+    <h2>{{ producto.nombre }}</h2>
+ 
+    <p><strong>Descripcion:</strong> {{ producto.descripcion }}</p>
+    {% if producto.imagen %}
+        <img src="{{ producto.imagen.url }}" alt="{{ producto.nombre }}">
+    {% endif %}
+    <p><strong>Precio:</strong> {{ producto.precio }}</p>
+    <p><strong>stock:</strong> {{ producto.stock }}</p>
+    <p><strong>categoria:</strong> {{ producto.categoria }}</p>
+
+  
+    <br>
+    <a href="{% url 'producto_list' %}">Volver a la lista de productos</a>
+    <br>
+    <a href="{% url 'producto_update' producto.idProducto %}">Editar</a>
+</body>
+</html>
+>>>>>>> Stashed changes

@@ -1,3 +1,4 @@
+<<<<<<< Updated upstream
 <!DOCTYPE html>
 <html>
 <head>
@@ -13,3 +14,20 @@
     </form>
 </body>
 </html>
+=======
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Eliminar Producto</title>
+</head>
+<body>
+    <h1>Eliminar Producto</h1>
+    <p>¿Estás seguro de que quieres eliminar el producto "{{ producto.nombre }}"?</p>
+    <form method="post">
+        {% csrf_token %}
+        <button type="submit">Eliminar</button>
+        <a href="{% url 'detalle_producto' producto.idProducto %}">Cancelar</a>
+    </form>
+</body>
+</html>
+>>>>>>> Stashed changes
