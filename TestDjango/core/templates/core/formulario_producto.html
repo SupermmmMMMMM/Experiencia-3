@@ -7,7 +7,7 @@
 <body>
     
     <h2>Ingrese un nuevo producto</h2>
-    <form method="post">
+    <form method="post"enctype="multipart/form-data">
         {% csrf_token %}
         {{ form.as_p}}
         <button type="submit">Guardar Producto</button>

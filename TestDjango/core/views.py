@@ -2,6 +2,10 @@ from django.shortcuts import render, redirect,get_object_or_404
 from .models import Producto
 from .forms import ProductoForm
 
+from django.core.files.base import ContentFile
+
+from django.urls import reverse
+
 # Create your views here.
 def Index(request):
     return render(request,'core/Index.html')
@@ -18,7 +22,7 @@ def reclamos(request):
 
 def ingresar_producto(request):
     if request.method == 'POST':
-        form = ProductoForm(request.POST)
+        form = ProductoForm(request.POST,request.FILES)
         if form.is_valid():
             form.save()
             return redirect('producto_list')  # Redirige a la lista de productos (debe ser definida en urls.py)
@@ -30,18 +34,10 @@ def producto_list(request):
     productos = Producto.objects.all()
     return render(request, 'core/producto_list.html', {'productos': productos})
 
-def producto_create(request):
-    if request.method == 'POST':
-        form = ProductoForm(request.POST, request.FILES)
-        if form.is_valid():
-            form.save()
-            return redirect('producto_list')
-    else:
-        form = ProductoForm()
-    return render(request, 'core/formulario_producto.html', {'form': form})
 
-def producto_update(request, pk):
-    producto = get_object_or_404(Producto, pk=pk)
+
+def producto_update(request, idProducto):
+    producto = get_object_or_404(Producto, idProducto=idProducto)
     if request.method == 'POST':
         form = ProductoForm(request.POST, request.FILES, instance=producto)
         if form.is_valid():
@@ -52,12 +48,16 @@ def producto_update(request, pk):
     return render(request, 'core/formulario_producto.html', {'form': form})
 
 
-def producto_delete(request, pk):
-    producto = get_object_or_404(Producto, pk=pk)
+def eliminar_producto(request, idProducto):
+    producto = get_object_or_404(Producto, idProducto=idProducto)
     if request.method == 'POST':
         producto.delete()
-        return redirect('producto_list')
-    return render(request, 'core/producto_confirm_delete.html', {'producto': producto})
+        return redirect('producto_list')  # Redirige a la lista de productos después de la eliminación
+    return render(request, 'core/producto_delete.html', {'producto': producto})
+
 def detalle_producto(request, id):
-    producto = get_object_or_404(Producto, id=id)
+    producto = get_object_or_404(Producto, idProducto=id)
     return render(request, 'core/detalle_producto.html', {'producto': producto})
+
+
+

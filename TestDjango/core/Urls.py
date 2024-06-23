@@ -17,9 +17,9 @@ urlpatterns =[
     path('ola', views.ingresar_producto, name='nuevo_producto'),
 
      path('list/', views.producto_list, name='producto_list'),
-    path('productos/nuevo/', views.producto_create, name='producto_create'),
-    path('productos/<int:pk>/editar/', views.producto_update, name='producto_update'),
-    path('productos/<int:pk>/eliminar/', views.producto_delete, name='producto_delete'),
+   
+    path('productos/<int:idProducto>/editar/', views.producto_update, name='producto_update'),
+    path('productos/<int:idProducto>/eliminar/', views.eliminar_producto, name='producto_delete'),
      
  
     # Otras URLs si las tienes
