@@ -1,3 +1,4 @@
+<<<<<<< Updated upstream
 <!DOCTYPE html>
 <html>
 <head>
@@ -15,3 +16,22 @@
     </form>
 </body>
 </html>
+=======
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Formulario de Producto</title>
+</head>
+<body>
+    
+    <h2>Ingrese un nuevo producto</h2>
+    <form method="post"enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ form.as_p}}
+        <button type="submit">Guardar Producto</button>
+        <a href="{% url 'producto_list' %}">productos</a>
+    </form>
+</body>
+</html>
+>>>>>>> Stashed changes

@@ -1,6 +1,6 @@
 from django.urls import path
 from .views import Index,ofertas,quienes,reserva,reclamos
-from django.contrib import admin
+from .views import iniciar_sesion,registrar_cliente
 from django.urls import path, include
 from . import views
 urlpatterns =[
@@ -23,5 +23,11 @@ urlpatterns =[
      
  
     # Otras URLs si las tienes
+<<<<<<< Updated upstream
 ]
 
+=======
+    path('iniciar_sesion/', iniciar_sesion, name='iniciar_sesion'),
+    path('registro/', registrar_cliente, name='registro'),
+]
+>>>>>>> Stashed changes
