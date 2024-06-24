@@ -1,0 +1,34 @@
+{% extends 'core/base.html' %}
+
+{% block content %}
+<h2>Boleta de Compra</h2>
+{%load custom_filters%}
+<p>Fecha de Compra: {{ boleta.fecha_compra }}</p>
+<p>Estado del Pedido: {{ boleta.get_estado_display }}</p>
+
+<table>
+    <thead>
+        <tr>
+            <th>Producto</th>
+            <th>Cantidad</th>
+            <th>Precio Unitario</th>
+            <th>Subtotal</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for detalle in boleta.detalles.all %}
+        <tr>
+            <td>{{ detalle.producto.nombre }}</td>
+            <td>{{ detalle.cantidad }}</td>
+            <td>${{ detalle.precio_unitario }}</td>
+            <td>${{ detalle.precio_unitario|multiply:detalle.cantidad }}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+<p>Total: ${{ boleta.total }}</p>
+
+<a href="{% url 'Index' %}">Volver a la página principal</a>
+
+{% endblock %}

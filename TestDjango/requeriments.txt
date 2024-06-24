@@ -1,0 +1,9 @@
+<<<<<<< Updated upstream
+python-resize-image
+pillow
+django
+=======
+python-resize-image
+pillow
+django
+>>>>>>> Stashed changes
